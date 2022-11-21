@@ -4,56 +4,53 @@ import java.util.Objects;
 
 public class Milk extends Food {
 
-    private String flavour = "";
+    private String fat = "";
+    private static int Fat15Amount = 0;
+    private static int Fat25Amount = 0;
+    private static int Fat50Amount = 0;
+    static final String Fat15 = "Fat15";
+    static final String Fat25 = "Fat25";
+    static final String Fat50 = "Fat50";
 
-    private static int mintGumsAmount = 0;
-    private static int cherryGumsAmount = 0;
-    private static int watermelonGumsAmount = 0;
-    static final String Mint = "Mint";
-    static final String Cherry = "Cherry";
-    static final String Watermelon = "Watermelon";
-
-    public Milk(String flavour)  {
-        this.flavour = flavour;
+    public Milk(String fat)  {
+        this.fat = fat;
         this.name = "Milk";
 
-        switch (flavour) {
-            case (Mint):
+        switch (fat) {
+            case (Fat15):
                 this.calories = 100;
-                mintGumsAmount++;
+                Fat15Amount++;
                 return;
-            case (Cherry):
+            case (Fat25):
                 this.calories = 200;
-                cherryGumsAmount++;
+                Fat25Amount++;
                 return;
-            case (Watermelon):
+            case (Fat50):
                 this.calories = 300;
-                watermelonGumsAmount++;
+                Fat50Amount++;
                 return;
             default:
                 break;
         }
     }
-
     public int Amount(){
-        return switch (flavour) {
-            case (Mint) -> mintGumsAmount;
-            case (Cherry) -> cherryGumsAmount;
-            case (Watermelon) -> watermelonGumsAmount;
+        return switch (fat) {
+            case (Fat15) -> Fat15Amount;
+            case (Fat25) -> Fat25Amount;
+            case (Fat50) -> Fat50Amount;
             default -> 0;
         };
     }
-
     @Override
     public String toString() {
         return "Milk{" +
-                "flavour='" + flavour + '\'' +
+                "fat='" + fat + '\'' +
                 ", calories=" + calories +
                 '}';
     }
-
+    @Override
     public void consume(){
-        System.out.println(flavour + " " + name + " has been eaten.");
+        System.out.println(fat + " " + name + " has been drunk.");
     }
 
     @Override
@@ -61,12 +58,12 @@ public class Milk extends Food {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Milk Milk = (Milk) o;
-        return Objects.equals(flavour, Milk.flavour);
+        return Objects.equals(fat, Milk.fat);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(flavour);
+        return Objects.hash(fat);
     }
 
     @Override

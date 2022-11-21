@@ -4,44 +4,42 @@ import java.util.Objects;
 
 public class Pie extends Food {
 
-    private String icing = "";
+    private String stuffing = "";
 
-    private static int chocolatePiesAmount = 0;
-    private static int creamyPiesAmount = 0;
-    private static int caramelPiesAmount = 0;
-    static final String Chocolate = "Chocolate";
-    static final String Creamy = "Creamy";
-    static final String Caramel = "Caramel";
+    private static int cherryPiesAmount = 0;
+    private static int strawberryPiesAmount = 0;
+    private static int applePiesAmount = 0;
+    static final String Cherry = "Cherry";
+    static final String Strawberry = "Strawberry";
+    static final String Apple = "Apple";
 
-    public Pie(String icing) {
-        this.icing = icing;
+    public Pie(String stuffing) {
+        this.stuffing = stuffing;
         this.name = "Pie";
 
-        switch (icing) {
-            case (Chocolate):
+        switch (stuffing) {
+            case (Cherry):
                 this.calories = 100;
-                chocolatePiesAmount++;
+                cherryPiesAmount++;
                 break;
-            case (Creamy):
+            case (Strawberry):
                 this.calories = 200;
-                creamyPiesAmount++;
+                strawberryPiesAmount++;
                 break;
-            case (Caramel):
+            case (Apple):
                 this.calories = 300;
-                caramelPiesAmount++;
+                applePiesAmount++;
                 break;
             default:
                break;
         }
     }
 
-
-
     public int Amount(){
-        return switch (icing) {
-            case (Chocolate) -> chocolatePiesAmount;
-            case (Creamy) -> creamyPiesAmount;
-            case (Caramel) -> caramelPiesAmount;
+        return switch (stuffing) {
+            case (Cherry) -> cherryPiesAmount;
+            case (Strawberry) -> strawberryPiesAmount;
+            case (Apple) -> applePiesAmount;
             default -> 0;
         };
     }
@@ -49,25 +47,25 @@ public class Pie extends Food {
     @Override
     public String toString() {
         return "Pie{" +
-                "icing='" + icing + '\'' +
+                "stuffing='" + stuffing + '\'' +
                 ", calories=" + calories +
                 '}';
     }
-
+    @Override
     public void consume(){
-        System.out.println(icing + " " + name + " has been eaten.");
+        System.out.println(stuffing + " " + name + " has been eaten.");
     }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pie Pie = (Pie) o;
-        return Objects.equals(icing, Pie.icing);
+        return Objects.equals(stuffing, Pie.stuffing);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(icing);
+        return Objects.hash(stuffing);
     }
 
     @Override

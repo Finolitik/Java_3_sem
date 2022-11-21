@@ -6,13 +6,12 @@ public class Tea extends Food{
 
     private String color = "";
 
-
     private static int blackTeaAmount = 0;
     private static int greenTeaAmount = 0;
-    private static int blueTeaAmount = 0;
+    private static int redTeaAmount = 0;
     static final String Black = "Black";
     static final String Green = "Green";
-    static final String Blue = "Blue";
+    static final String Red = "Red";
 
     public Tea(String color)  {
         this.color = color;
@@ -20,16 +19,16 @@ public class Tea extends Food{
 
         switch (color) {
             case (Black):
-                this.calories = 100;
+                this.calories = 10;
                 blackTeaAmount++;
                 break;
             case (Green):
-                this.calories = 200;
+                this.calories = 20;
                 greenTeaAmount++;
                 break;
-            case (Blue):
-                this.calories = 300;
-                blueTeaAmount++;
+            case (Red):
+                this.calories = 30;
+                redTeaAmount++;
                 break;
             default:
                 break;
@@ -40,7 +39,7 @@ public class Tea extends Food{
         return switch (color){
             case(Black) -> blackTeaAmount;
             case(Green) -> greenTeaAmount;
-            case(Blue) -> blueTeaAmount;
+            case(Red) -> redTeaAmount;
             default -> 0;
         };
     }
